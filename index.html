@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range Calculator in PUBG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 450px;
+            margin: auto;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+        }
+        button {
+            padding: 10px;
+            width: 30%;
+        }
+        h3 {
+            margin: 0;
+        }
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Range Calculator in PUBG</h1>
+
+    <!-- <label for="sideA">Side A:</label> -->
+    <input type="number" id="sideA" placeholder="Enter side A"><br />
+
+    <!-- <label for="sideB">Side B:</label> -->
+    <input type="number" id="sideB" placeholder="Enter side B">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <p id="result"></p>
+
+    <h3>ตัวอย่างจ้า</h3>
+    <img src="https://pub-4ca40a355b454c74a804b089759c25bf.r2.dev/range-calculate-pubg-example.png" alt="range-calculate-pubg-example">
+
+    <script>
+        function calculate() {
+            const a = parseFloat(document.getElementById('sideA').value);
+            const b = parseFloat(document.getElementById('sideB').value);
+
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById('result').textContent = "ไม่ใส่เลขให้ กูจะคำนวณยังไงล่ะ เย็ดแม่"
+
+                return;
+            }
+
+            const c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)).toFixed(2);
+            document.getElementById('result').textContent = `Range is: ${c}`
+        }
+    </script>
+</body>
+</html>
